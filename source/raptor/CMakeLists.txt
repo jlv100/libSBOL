@@ -93,9 +93,9 @@ ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")   # If Linux
     if(SBOL_BUILD_SHARED)
         # Search for Raptor and JsonCpp as a dynamic dependency
         unset(JsonCpp_LIBRARY CACHE)
-        unset(RAPTOR_LIBRARY CACHE)
+        #unset(RAPTOR_LIBRARY CACHE)
         unset(JsonCpp_INCLUDE_DIR CACHE)
-        unset(RAPTOR_INCLUDE_DIR CACHE)
+        #unset(RAPTOR_INCLUDE_DIR CACHE)
         set(CMAKE_FIND_LIBRARY_SUFFIXES .dll .dylib .so)
         find_package( RAPTOR )
         find_package( JsonCpp )
