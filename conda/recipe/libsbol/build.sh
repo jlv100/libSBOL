@@ -1,17 +1,12 @@
 set -x
 
-mkdir -p $PREFIX/lib
-mkdir -p $PREFIX/lib/python$PY_VER/sbol
+mkdir -p $SP_DIR/sbol
 
 cd $SRC_DIR
 git submodule update --init --recursive
 
-cp ${PREFIX}/include/raptor2/* ${PREFIX}/include/
-
 cmake \
     -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
-    -DCMAKE_INSTALL_LIBDIR="${PREFIX}/lib" \
-    -DCMAKE_PREFIX_PATH="${PREFIX}" \
     -DCMAKE_INCLUDE_PATH="${PREFIX}/include" \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
     -DLIBXSLT_INCLUDE_DIR="${PREFIX}/include/libxslt" \
@@ -31,5 +26,4 @@ cmake \
 
 make install
 
-cp -r release/wrapper/Linux_64_3/sbol/* $PREFIX/lib/python$PY_VER/sbol/
-#cp -r test __init__.py libsbol.py sbol.py unit_tests.py _libsbol.so $PREFIX/lib/python$PY_VER/sbol/
+cp -r release/wrapper/Linux_64_3/sbol $SP_DIR

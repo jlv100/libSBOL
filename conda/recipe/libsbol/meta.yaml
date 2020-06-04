@@ -10,25 +10,22 @@ source:
 
 build:
   number: 1
-  rpaths:
-    - lib/
-    - lib/python3.7/sbol/
+
   run_exports:
     - libsbol
 
 requirements:
   host:
-    - python=3.7
+    - python=3.5
     - raptor
     - rasqal
+    - libiconv
   build:
     - make
     - cmake=3.12.4
     - swig
-    - gcc_impl_linux-64
-    - gcc_linux-64
-    - gxx_impl_linux-64
-    - gxx_linux-64
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - jsoncpp
     - pkg-config
     - ripgrep
@@ -42,7 +39,6 @@ requirements:
     - raptor
     - rasqal 
     - icu=58
-    - libiconv
 
 test:
   imports:
