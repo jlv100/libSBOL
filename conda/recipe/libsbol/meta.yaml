@@ -1,0 +1,61 @@
+{% set version = "2.3.0" %}
+
+package:
+  name: libsbol
+  version: {{ version }}
+
+source:
+    git_url: https://github.com/jlv100/libSBOL.git
+    git_rev: cmake_icase
+
+build:
+  number: 1
+  rpaths:
+    - lib/
+    - lib/python3.7/sbol/
+  run_exports:
+    - libsbol
+
+requirements:
+  host:
+    - python=3.7
+    - raptor
+    - rasqal
+  build:
+    - make
+    - cmake=3.12.4
+    - swig
+    - gcc_impl_linux-64
+    - gcc_linux-64
+    - gxx_impl_linux-64
+    - gxx_linux-64
+    - jsoncpp
+    - pkg-config
+    - ripgrep
+  run:
+    - libgcc
+    - libgcc-ng
+    - libstdcxx-ng
+    - libxslt
+    - libcurl
+    - jsoncpp
+    - raptor
+    - rasqal 
+    - icu=58
+    - libiconv
+
+test:
+  imports:
+    - sbol
+  commands:
+    - python -m unittest sbol.unit_tests
+
+about:
+  home: http://synbiodex.github.io/libSBOL
+  license: Apache2
+  summary: 'Synthetic Biology Open Language'
+  description: 'libSBOL is a C++ library for reading, writing, and constructing genetic designs according to the standardized specifications of the Synthetic Biology Open Language (SBOL).'
+  dev_url: https://github.com/jlv100/libSBOL
+  doc_url: https://github.com/jlv100/libSBOL
+  doc_source_url: https://github.com/jlv100/libSBOL/blob/cmake_icase/README.md
+
