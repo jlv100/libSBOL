@@ -1,6 +1,6 @@
 set -x
 
-mkdir -p $SP_DIR/sbol
+#mkdir -p $SP_DIR/sbol
 
 cd $SRC_DIR
 git submodule update --init --recursive
@@ -26,4 +26,6 @@ cmake \
 
 make install
 
-cp -r release/wrapper/Linux_64_3/sbol $SP_DIR
+#cp -r release/wrapper/Linux_64_3/sbol $SP_DIR
+cd release/wrapper/Linux_64_3
+$PYTHON setup.py install --single-version-externally-managed --record=record.txt

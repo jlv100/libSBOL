@@ -6,7 +6,7 @@ package:
 
 source:
     git_url: https://github.com/jlv100/libSBOL.git
-    git_rev: cmake_icase
+    git_rev: conda
 
 build:
   number: 1
@@ -29,6 +29,7 @@ requirements:
     - jsoncpp
     - pkg-config
     - ripgrep
+    - setuptools
   run:
     - libgcc
     - libgcc-ng
@@ -53,5 +54,5 @@ about:
   description: 'libSBOL is a C++ library for reading, writing, and constructing genetic designs according to the standardized specifications of the Synthetic Biology Open Language (SBOL).'
   dev_url: https://github.com/jlv100/libSBOL
   doc_url: https://github.com/jlv100/libSBOL
-  doc_source_url: https://github.com/jlv100/libSBOL/blob/cmake_icase/README.md
+  doc_source_url: https://github.com/jlv100/libSBOL/blob/conda/README.md
 
