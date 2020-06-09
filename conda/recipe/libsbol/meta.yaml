@@ -16,7 +16,7 @@ build:
 
 requirements:
   host:
-    - python=3.5
+    - python=3.7
     - raptor
     - rasqal
     - libiconv
@@ -30,6 +30,7 @@ requirements:
     - pkg-config
     - ripgrep
     - setuptools
+    - pip
   run:
     - libgcc
     - libgcc-ng
